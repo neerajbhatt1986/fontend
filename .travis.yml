@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before-install:
+  - docker build -t frontend-image -f DockerFile.dev .
+
+script:
+  - docker run frontend-image npm run test -- --coverage
